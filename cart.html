@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>NEXUS CYBERSTORE — Xarid Savati va Telegram Buyurtma Markazi</title>
+    
+    <!-- Meta SEO & Social -->
+    <meta name="description" content="NEXUS CYBERSTORE xarid savati. Tovarlar miqdorini boshqarish, promokod orqali chegirma olish va Telegram bot orqali rasmiy buyurtma berish.">
+    <meta name="keywords" content="savat, buyurtma, telegram bot, checkout, gaming tovarlar, toshkent, yetkazib berish">
+    <meta name="author" content="NEXUS CYBERSTORE Team">
+    <meta name="theme-color" content="#00f3ff">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Pro 6 Free CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS CUSTOM PROPERTIES & CYBER DESIGN SYSTEM
+           ========================================================================== */
+        :root {
+            --neon-cyan: #00f3ff;
+            --neon-cyan-glow: rgba(0, 243, 255, 0.45);
+            --neon-green: #00ff88;
+            --neon-green-glow: rgba(0, 255, 136, 0.45);
+            --neon-purple: #bc13fe;
+            --neon-purple-glow: rgba(188, 19, 254, 0.45);
+            --neon-pink: #ff0055;
+            --neon-pink-glow: rgba(255, 0, 85, 0.45);
+            --neon-yellow: #ffe600;
+            --neon-yellow-glow: rgba(255, 230, 0, 0.4);
+
+            --bg-body: #06080c;
+            --bg-body-rgb: 6, 8, 12;
+            --bg-card: rgba(14, 18, 27, 0.85);
+            --bg-card-rgb: 14, 18, 27;
+            --bg-card-hover: rgba(22, 28, 42, 0.95);
+            --bg-header: rgba(8, 11, 18, 0.9);
+            --bg-secondary: #0c1017;
+            --bg-tertiary: #131924;
+            --border-color: rgba(0, 243, 255, 0.18);
+            --border-hover: rgba(0, 243, 255, 0.6);
+            --border-light: rgba(255, 255, 255, 0.08);
+
+            --text-primary: #f0f6fc;
+            --text-secondary: #9aa8ba;
+            --text-muted: #627285;
+            --text-inverse: #06080c;
+
+            --glass-blur: blur(16px);
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --shadow-neon-cyan: 0 0 25px rgba(0, 243, 255, 0.35);
+
+            --font-display: 'Orbitron', monospace, sans-serif;
+            --font-cyber: 'Rajdhani', sans-serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.15s ease-in-out;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 14px;
+            --radius-cyber: 6px;
+            --cyber-clip-sm: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+        }
+
+        [data-theme="light"] {
+            --bg-body: #f4f6fa;
+            --bg-body-rgb: 244, 246, 250;
+            --bg-card: rgba(255, 255, 255, 0.92);
+            --bg-card-rgb: 255, 255, 255;
+            --bg-card-hover: #ffffff;
+            --bg-header: rgba(255, 255, 255, 0.95);
+            --bg-secondary: #e8ecf4;
+            --bg-tertiary: #d8e0ec;
+            --border-color: rgba(0, 180, 216, 0.3);
+            --border-hover: rgba(0, 180, 216, 0.85);
+            --border-light: rgba(0, 0, 0, 0.08);
+
+            --text-primary: #0a0e17;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --text-inverse: #f0f6fc;
+
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.07);
+            --shadow-card: 0 10px 30px rgba(0, 30, 80, 0.12);
+            --shadow-neon-cyan: 0 0 20px rgba(0, 180, 216, 0.25);
+        }
+
+        /* Base Resets */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body); background-color: var(--bg-body);
+            color: var(--text-primary); line-height: 1.6; overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease; position: relative;
+        }
+
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 243, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px; pointer-events: none; z-index: -1;
+        }
+
+        .cyber-scanlines {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+            background-size: 100% 4px; z-index: 9999; pointer-events: none; opacity: 0.3;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        button, input, select, textarea { font-family: inherit; border: none; outline: none; background: transparent; }
+        button { cursor: pointer; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1380px; margin: 0 auto; padding: 0 24px; }
+
+        /* Cyber Buttons & Badges */
+        .btn-cyber-primary {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background: linear-gradient(135deg, var(--neon-cyan), #0099ff);
+            color: #04070c !important; font-family: var(--font-display);
+            font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            padding: 14px 26px; clip-path: var(--cyber-clip-sm); border: none;
+            transition: var(--transition-smooth); position: relative; overflow: hidden;
+            box-shadow: 0 0 20px var(--neon-cyan-glow);
+        }
+        .btn-cyber-primary:hover { box-shadow: 0 0 30px var(--neon-cyan); transform: translateY(-2px); }
+
+        .btn-cyber-tg {
+            background: linear-gradient(135deg, #229ED9, #0088cc); color: #fff !important;
+            font-family: var(--font-display); font-size: 0.88rem; font-weight: 700;
+            letter-spacing: 0.8px; text-transform: uppercase; padding: 15px 28px;
+            clip-path: var(--cyber-clip-sm); display: inline-flex; align-items: center; justify-content: center;
+            gap: 10px; transition: var(--transition-smooth); box-shadow: 0 0 20px rgba(34, 158, 217, 0.4);
+            width: 100%; cursor: pointer;
+        }
+        .btn-cyber-tg:hover { box-shadow: 0 0 30px rgba(34, 158, 217, 0.8); transform: translateY(-2px); }
+
+        .badge-cyber {
+            display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+            font-family: var(--font-cyber); font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.8px; text-transform: uppercase; border-radius: var(--radius-sm);
+        }
+        .badge-cyan { background: rgba(0, 243, 255, 0.12); color: var(--neon-cyan); border: 1px solid rgba(0, 243, 255, 0.3); }
+        .badge-green { background: rgba(0, 255, 136, 0.12); color: var(--neon-green); border: 1px solid rgba(0, 255, 136, 0.3); }
+        .badge-pink { background: rgba(255, 0, 85, 0.12); color: var(--neon-pink); border: 1px solid rgba(255, 0, 85, 0.3); }
+
+        /* Header Navigation */
+        .top-announcement {
+            background: linear-gradient(90deg, #090e18, #10192b, #090e18);
+            border-bottom: 1px solid var(--border-light); font-size: 0.8rem; padding: 7px 0;
+            position: relative; z-index: 1002;
+        }
+        .top-announcement .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-marquee {
+            display: flex; align-items: center; gap: 10px; color: var(--text-secondary);
+            font-family: var(--font-cyber); font-weight: 600;
+        }
+        .top-marquee .pulse-dot {
+            width: 8px; height: 8px; background: var(--neon-green); border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-green); animation: pulse-dot 1.5s infinite;
+        }
+        @keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.5; } }
+        .top-controls { display: flex; align-items: center; gap: 18px; }
+        .top-control-item {
+            display: flex; align-items: center; gap: 6px; color: var(--text-secondary);
+            font-size: 0.78rem; cursor: pointer; transition: var(--transition-fast);
+        }
+        .top-control-item:hover { color: var(--neon-cyan); }
+        .top-control-item select {
+            color: var(--text-primary); font-weight: 600; font-size: 0.78rem; cursor: pointer;
+            padding: 2px 4px; background: var(--bg-card); border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+        }
+        .top-control-item select option { background: var(--bg-body); color: var(--text-primary); }
+
+        .cyber-header {
+            position: sticky; top: 0; left: 0; width: 100%; background: var(--bg-header);
+            backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border-color); z-index: 1000; transition: var(--transition-smooth);
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 84px; gap: 24px; }
+        .brand-logo {
+            display: flex; align-items: center; gap: 12px; font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        .brand-logo .logo-icon {
+            width: 44px; height: 44px; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            clip-path: var(--cyber-clip-sm); display: flex; align-items: center; justify-content: center;
+            color: #000; font-size: 1.3rem; box-shadow: 0 0 15px var(--neon-cyan-glow);
+            transition: var(--transition-smooth);
+        }
+        .brand-logo:hover .logo-icon { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 25px var(--neon-cyan); }
+        .brand-logo .logo-text span { color: var(--neon-cyan); }
+
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+        .nav-link {
+            font-family: var(--font-cyber); font-size: 1.05rem; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary);
+            position: relative; padding: 8px 0;
+        }
+        .nav-link::after {
+            content: ""; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px;
+            background: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); transition: var(--transition-smooth);
+        }
+        .nav-link:hover, .nav-link.active { color: var(--neon-cyan); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .header-search { position: relative; flex: 1; max-width: 360px; }
+        .search-input-wrap { position: relative; display: flex; align-items: center; }
+        .search-input {
+            width: 100%; background: var(--bg-tertiary); border: 1px solid var(--border-color);
+            padding: 10px 42px 10px 16px; border-radius: var(--radius-cyber); color: var(--text-primary);
+            font-size: 0.9rem; font-family: var(--font-body); transition: var(--transition-smooth);
+        }
+        .search-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-cyan-glow); }
+        .search-btn { position: absolute; right: 12px; color: var(--text-muted); font-size: 1rem; }
+        .search-input:focus + .search-btn { color: var(--neon-cyan); }
+
+        .search-dropdown {
+            position: absolute; top: calc(100% + 10px); left: 0; width: 100%; background: var(--bg-card);
+            backdrop-filter: var(--glass-blur); border: 1px solid var(--border-color);
+            border-radius: var(--radius-md); box-shadow: var(--shadow-card); display: none;
+            flex-direction: column; overflow: hidden; z-index: 1005;
+        }
+        .search-dropdown.active { display: flex; }
+        .search-item {
+            display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+            border-bottom: 1px solid var(--border-light); transition: var(--transition-fast);
+        }
+        .search-item:hover { background: rgba(0, 243, 255, 0.08); }
+        .search-item img { width: 40px; height: 40px; object-fit: contain; border-radius: 4px; background: var(--bg-tertiary); }
+        .search-item-info { flex: 1; }
+        .search-item-title { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+        .search-item-price { font-size: 0.8rem; color: var(--neon-cyan); font-weight: 700; font-family: var(--font-cyber); }
+
+        .header-actions { display: flex; align-items: center; gap: 14px; }
+        .action-icon-btn {
+            position: relative; width: 44px; height: 44px; border-radius: var(--radius-cyber);
+            background: var(--bg-tertiary); border: 1px solid var(--border-light);
+            display: flex; align-items: center; justify-content: center; color: var(--text-primary);
+            font-size: 1.15rem; transition: var(--transition-smooth);
+        }
+        .action-icon-btn:hover {
+            border-color: var(--neon-cyan); color: var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan-glow); transform: translateY(-2px);
+        }
+        .action-badge {
+            position: absolute; top: -4px; right: -4px; min-width: 19px; height: 19px;
+            padding: 0 4px; background: var(--neon-pink); color: #fff; font-size: 0.72rem;
+            font-weight: 800; font-family: var(--font-display); border-radius: 10px;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px var(--neon-pink);
+        }
+        .sound-toggle-btn.muted { opacity: 0.6; }
+        .mobile-menu-btn {
+            display: none; width: 44px; height: 44px; background: var(--bg-tertiary);
+            border: 1px solid var(--border-color); border-radius: var(--radius-cyber);
+            color: var(--neon-cyan); font-size: 1.25rem; align-items: center; justify-content: center;
+        }
+
+        /* ==========================================================================
+           2. CHECKOUT STEPPER & BREADCRUMBS
+           ========================================================================== */
+        .cart-page-section { padding: 40px 0 90px; }
+        .breadcrumbs-bar {
+            display: flex; align-items: center; gap: 8px; font-size: 0.85rem;
+            font-family: var(--font-cyber); font-weight: 600; color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+        .breadcrumbs-bar a:hover { color: var(--neon-cyan); }
+        .breadcrumbs-bar i { font-size: 0.75rem; }
+        .breadcrumbs-bar .current-page { color: var(--neon-cyan); font-weight: 700; }
+
+        .checkout-stepper {
+            display: flex; justify-content: space-between; max-width: 700px; margin: 0 auto 40px;
+            position: relative;
+        }
+        .checkout-stepper::before {
+            content: ""; position: absolute; top: 20px; left: 50px; right: 50px; height: 2px;
+            background: var(--border-light); z-index: 0;
+        }
+        .step-item {
+            position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center;
+            gap: 8px; text-align: center;
+        }
+        .step-circle {
+            width: 42px; height: 42px; border-radius: 50%; background: var(--bg-tertiary);
+            border: 2px solid var(--border-light); display: flex; align-items: center;
+            justify-content: center; font-family: var(--font-display); font-weight: 800;
+            color: var(--text-muted); transition: var(--transition-smooth);
+        }
+        .step-item.active .step-circle {
+            background: var(--neon-cyan); color: #000; border-color: var(--neon-cyan);
+            box-shadow: 0 0 18px var(--neon-cyan-glow);
+        }
+        .step-title {
+            font-family: var(--font-cyber); font-size: 0.88rem; font-weight: 700;
+            text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.8px;
+        }
+        .step-item.active .step-title { color: var(--neon-cyan); }
+
+        /* ==========================================================================
+           3. MAIN CART & CHECKOUT 2-COLUMN LAYOUT
+           ========================================================================== */
+        .cart-checkout-grid {
+            display: grid; grid-template-columns: 1.45fr 0.95fr; gap: 36px; align-items: flex-start;
+        }
+
+        /* Cart Items Section */
+        .cart-items-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-card);
+            margin-bottom: 30px;
+        }
+        .cart-card-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-light); padding-bottom: 18px; margin-bottom: 20px;
+        }
+        .cart-card-title {
+            font-family: var(--font-display); font-size: 1.25rem; font-weight: 900;
+            text-transform: uppercase; color: var(--text-primary); display: flex; align-items: center; gap: 10px;
+        }
+
+        /* Cart Items Table / List */
+        .cart-items-table { display: flex; flex-direction: column; gap: 16px; }
+        .cart-row-item {
+            display: grid; grid-template-columns: 80px 1.5fr 110px 120px 40px;
+            align-items: center; gap: 16px; background: var(--bg-tertiary);
+            border: 1px solid var(--border-light); border-radius: var(--radius-md);
+            padding: 14px 18px; transition: var(--transition-fast);
+        }
+        .cart-row-item:hover { border-color: var(--neon-cyan); }
+        .cart-row-img {
+            width: 80px; height: 80px; object-fit: cover; border-radius: 4px;
+            background: rgba(0,0,0,0.2);
+        }
+        .cart-row-info { display: flex; flex-direction: column; gap: 4px; }
+        .cart-row-brand {
+            font-family: var(--font-cyber); font-size: 0.75rem; font-weight: 700;
+            color: var(--neon-cyan); letter-spacing: 1px; text-transform: uppercase;
+        }
+        .cart-row-title {
+            font-size: 0.95rem; font-weight: 700; color: var(--text-primary);
+            line-height: 1.3;
+        }
+        .cart-row-unit-price {
+            font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-display);
+        }
+
+        .cart-stepper {
+            display: flex; align-items: center; background: var(--bg-card);
+            border: 1px solid var(--border-color); border-radius: var(--radius-cyber);
+            overflow: hidden; height: 36px;
+        }
+        .cart-stepper-btn {
+            width: 32px; height: 100%; display: flex; align-items: center; justify-content: center;
+            color: var(--text-primary); font-size: 0.95rem; cursor: pointer; transition: var(--transition-fast);
+        }
+        .cart-stepper-btn:hover { background: var(--neon-cyan); color: #000; }
+        .cart-stepper-val {
+            width: 36px; text-align: center; font-family: var(--font-display);
+            font-size: 0.95rem; font-weight: 700; color: var(--text-primary);
+        }
+
+        .cart-row-total-price {
+            font-family: var(--font-display); font-size: 1.05rem; font-weight: 800;
+            color: var(--neon-cyan); text-align: right;
+        }
+        .cart-row-remove-btn {
+            color: var(--text-muted); font-size: 1.1rem; cursor: pointer;
+            transition: color 0.2s; text-align: center;
+        }
+        .cart-row-remove-btn:hover { color: var(--neon-pink); }
+
+        .cart-actions-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid var(--border-light); padding-top: 20px; margin-top: 10px;
+            flex-wrap: wrap; gap: 14px;
+        }
+
+        /* Empty Cart State */
+        .cart-empty-state {
+            text-align: center; padding: 60px 20px; display: none; flex-direction: column;
+            align-items: center; gap: 16px;
+        }
+        .cart-empty-icon { font-size: 4rem; color: var(--text-muted); }
+        .cart-empty-title {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        /* ==========================================================================
+           4. SHIPPING & CUSTOMER DETAILS FORM
+           ========================================================================== */
+        .checkout-form-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-card);
+        }
+        .checkout-form-header {
+            border-bottom: 1px solid var(--border-light); padding-bottom: 16px; margin-bottom: 24px;
+        }
+        .checkout-form-title {
+            font-family: var(--font-display); font-size: 1.25rem; font-weight: 900;
+            text-transform: uppercase; color: var(--text-primary); display: flex; align-items: center; gap: 10px;
+        }
+
+        .checkout-form-grid { display: flex; flex-direction: column; gap: 18px; }
+        .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-field { display: flex; flex-direction: column; gap: 6px; }
+        .form-field label {
+            font-family: var(--font-cyber); font-size: 0.85rem; font-weight: 700;
+            color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.8px;
+        }
+        .form-field input, .form-field select, .form-field textarea {
+            background: var(--bg-tertiary); border: 1px solid var(--border-color);
+            border-radius: var(--radius-cyber); padding: 12px 16px; color: var(--text-primary);
+            font-size: 0.95rem; transition: var(--transition-smooth);
+        }
+        .form-field select { cursor: pointer; }
+        .form-field select option { background: var(--bg-body); color: var(--text-primary); }
+        .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+            border-color: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-cyan-glow);
+        }
+
+        /* Payment Radio Group */
+        .payment-methods-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 6px;
+        }
+        .payment-method-label {
+            background: var(--bg-tertiary); border: 1px solid var(--border-light);
+            border-radius: var(--radius-cyber); padding: 14px 10px; text-align: center;
+            cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px;
+            transition: var(--transition-fast);
+        }
+        .payment-method-label i { font-size: 1.4rem; color: var(--text-muted); }
+        .payment-method-label span {
+            font-family: var(--font-cyber); font-size: 0.85rem; font-weight: 700;
+            text-transform: uppercase; color: var(--text-secondary);
+        }
+        .payment-method-label input[type="radio"] { display: none; }
+        .payment-method-label.active, .payment-method-label:hover {
+            border-color: var(--neon-cyan); background: rgba(0, 243, 255, 0.08);
+            box-shadow: 0 0 12px var(--neon-cyan-glow);
+        }
+        .payment-method-label.active i, .payment-method-label.active span {
+            color: var(--neon-cyan);
+        }
+
+        /* ==========================================================================
+           5. RIGHT COLUMN: SUMMARY & TELEGRAM BOT DISPATCH HUB
+           ========================================================================== */
+        .order-summary-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-card);
+            position: sticky; top: 104px; display: flex; flex-direction: column; gap: 20px;
+        }
+        .summary-card-header {
+            border-bottom: 1px solid var(--border-light); padding-bottom: 16px;
+        }
+        .summary-card-title {
+            font-family: var(--font-display); font-size: 1.25rem; font-weight: 900;
+            text-transform: uppercase; color: var(--text-primary);
+        }
+
+        /* Promo Code Box */
+        .promo-code-wrap {
+            display: flex; gap: 8px; background: var(--bg-tertiary);
+            border: 1px solid var(--border-color); border-radius: var(--radius-cyber); padding: 4px;
+        }
+        .promo-code-input {
+            flex: 1; padding: 10px 14px; font-family: var(--font-display); font-size: 0.85rem;
+            color: var(--text-primary); text-transform: uppercase;
+        }
+        .btn-apply-promo {
+            padding: 10px 18px; background: var(--neon-cyan); color: #000;
+            font-family: var(--font-cyber); font-weight: 800; font-size: 0.85rem;
+            text-transform: uppercase; border-radius: var(--radius-cyber); cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .btn-apply-promo:hover { box-shadow: 0 0 12px var(--neon-cyan); }
+        .promo-applied-badge {
+            display: none; align-items: center; justify-content: space-between;
+            background: rgba(0, 255, 136, 0.12); border: 1px solid var(--neon-green);
+            border-radius: var(--radius-sm); padding: 8px 12px; font-family: var(--font-cyber);
+            font-size: 0.85rem; color: var(--neon-green); font-weight: 700;
+        }
+
+        /* Price Calculation Rows */
+        .summary-calc-rows { display: flex; flex-direction: column; gap: 12px; }
+        .calc-row {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.95rem; color: var(--text-secondary);
+        }
+        .calc-row-val {
+            font-family: var(--font-display); font-weight: 700; color: var(--text-primary);
+        }
+
+        .calc-total-row {
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid var(--border-light); padding-top: 16px; margin-top: 6px;
+        }
+        .calc-total-label {
+            font-family: var(--font-cyber); font-size: 1.15rem; font-weight: 800;
+            text-transform: uppercase; color: var(--text-primary);
+        }
+        .calc-total-val {
+            font-family: var(--font-display); font-size: 1.8rem; font-weight: 900;
+            color: var(--neon-cyan);
+        }
+
+        /* Telegram Dispatch Notice */
+        .telegram-dispatch-notice {
+            background: rgba(34, 158, 217, 0.08); border: 1px solid rgba(34, 158, 217, 0.3);
+            border-radius: var(--radius-sm); padding: 12px; font-size: 0.82rem;
+            color: var(--text-secondary); line-height: 1.5; display: flex; gap: 10px; align-items: flex-start;
+        }
+        .telegram-dispatch-notice i { color: #229ED9; font-size: 1.2rem; margin-top: 2px; }
+
+        /* Security Assurance Strip */
+        .security-assurance-strip {
+            display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border-light);
+            padding-top: 16px; font-size: 0.8rem; color: var(--text-muted);
+        }
+        .security-item { display: flex; align-items: center; gap: 8px; }
+        .security-item i { color: var(--neon-green); }
+
+        /* ==========================================================================
+           6. SUCCESS RECEIPT MODAL
+           ========================================================================== */
+        .cyber-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(4, 6, 10, 0.85); backdrop-filter: blur(8px);
+            z-index: 2000; display: none; align-items: center; justify-content: center;
+            padding: 20px; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .cyber-modal-overlay.active { display: flex; opacity: 1; }
+        .cyber-modal {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg); width: 100%; max-width: 600px;
+            position: relative; padding: 35px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--neon-cyan-glow);
+            transform: scale(0.95); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto;
+        }
+        .cyber-modal-overlay.active .cyber-modal { transform: scale(1); }
+        .modal-close-btn {
+            position: absolute; top: 20px; right: 20px; width: 36px; height: 36px;
+            background: var(--bg-tertiary); border: 1px solid var(--border-light);
+            border-radius: 50%; color: var(--text-secondary); font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .modal-close-btn:hover { color: var(--neon-pink); border-color: var(--neon-pink); }
+
+        .receipt-box { display: flex; flex-direction: column; gap: 18px; text-align: center; }
+        .receipt-icon-circle {
+            width: 70px; height: 70px; border-radius: 50%; background: rgba(0, 255, 136, 0.15);
+            border: 2px solid var(--neon-green); display: flex; align-items: center; justify-content: center;
+            margin: 0 auto; color: var(--neon-green); font-size: 2.2rem;
+            box-shadow: 0 0 20px var(--neon-green-glow);
+        }
+        .receipt-title {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
+            color: var(--text-primary); text-transform: uppercase;
+        }
+        .receipt-order-id {
+            font-family: var(--font-display); font-size: 1.1rem; color: var(--neon-cyan);
+            font-weight: 800; background: var(--bg-tertiary); padding: 8px 16px;
+            border-radius: var(--radius-sm); border: 1px dashed var(--border-color); display: inline-block;
+        }
+        .receipt-details-list {
+            background: var(--bg-tertiary); border: 1px solid var(--border-light);
+            border-radius: var(--radius-md); padding: 18px; display: flex;
+            flex-direction: column; gap: 10px; text-align: left; font-size: 0.9rem;
+        }
+        .receipt-row { display: flex; justify-content: space-between; }
+        .receipt-row-label { color: var(--text-muted); font-family: var(--font-cyber); text-transform: uppercase; }
+        .receipt-row-val { font-weight: 700; color: var(--text-primary); }
+
+        /* Toast Container */
+        .toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 3000; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
+        .cyber-toast {
+            background: var(--bg-card); border: 1px solid var(--neon-cyan); border-radius: var(--radius-cyber);
+            padding: 14px 20px; color: var(--text-primary); font-family: var(--font-cyber);
+            font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px; display: flex; align-items: center;
+            gap: 12px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6), 0 0 15px var(--neon-cyan-glow);
+            transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: auto;
+        }
+        .cyber-toast.show { transform: translateX(0); }
+        .cyber-toast.toast-success { border-color: var(--neon-green); box-shadow: 0 0 15px var(--neon-green-glow); }
+        .cyber-toast.toast-error { border-color: var(--neon-pink); box-shadow: 0 0 15px var(--neon-pink-glow); }
+
+        /* Footer */
+        .cyber-footer { background: #040508; border-top: 1px solid var(--border-color); padding: 70px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 50px; }
+        .footer-brand-col p { color: var(--text-secondary); font-size: 0.9rem; margin: 16px 0 22px; line-height: 1.7; }
+        .footer-socials { display: flex; gap: 12px; }
+        .social-link {
+            width: 40px; height: 40px; border-radius: var(--radius-cyber); background: var(--bg-tertiary);
+            border: 1px solid var(--border-light); display: flex; align-items: center; justify-content: center;
+            color: var(--text-secondary); font-size: 1.1rem; transition: var(--transition-smooth);
+        }
+        .social-link:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-cyan-glow); transform: translateY(-3px); }
+        .footer-col-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--text-primary); margin-bottom: 22px; position: relative; padding-bottom: 8px; }
+        .footer-col-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 32px; height: 2px; background: var(--neon-cyan); box-shadow: 0 0 6px var(--neon-cyan); }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .footer-links a { color: var(--text-secondary); font-size: 0.9rem; transition: var(--transition-fast); display: inline-flex; align-items: center; gap: 6px; }
+        .footer-links a:hover { color: var(--neon-cyan); transform: translateX(4px); }
+        .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .contact-item { display: flex; align-items: flex-start; gap: 12px; color: var(--text-secondary); font-size: 0.9rem; }
+        .contact-item i { color: var(--neon-cyan); font-size: 1.1rem; margin-top: 3px; }
+        .footer-bottom { border-top: 1px solid var(--border-light); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-copy { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-payments { display: flex; align-items: center; gap: 16px; color: var(--text-muted); font-size: 1.5rem; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .cart-checkout-grid { grid-template-columns: 1fr; }
+            .order-summary-card { position: static; }
+            .nav-links, .header-search { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .cart-row-item { grid-template-columns: 70px 1fr 90px; gap: 12px; }
+            .cart-row-total-price { grid-column: 2 / -1; text-align: left; }
+            .payment-methods-grid { grid-template-columns: 1fr 1fr; }
+            .form-row-2 { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 500px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .payment-methods-grid { grid-template-columns: 1fr; }
+            .checkout-stepper { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Scanlines (Cyber Effect) -->
+    <div class="cyber-scanlines"></div>
+
+    <!-- ==========================================================================
+         TOP ANNOUNCEMENT BAR (TILLAR, VALYUTA, DARK/LIGHT, SFX)
+         ========================================================================== -->
+    <div class="top-announcement">
+        <div class="container">
+            <div class="top-marquee">
+                <span class="pulse-dot"></span>
+                <span data-i18n="top_bar_alert">🔥 1,000,000 SO'MDAN YUQORI HAR QANDAY BUYURTMA UCHUN BEPUL EXPRESS YETKAZIB BERISH!</span>
+            </div>
+            <div class="top-controls">
+                <div class="top-control-item">
+                    <i class="fa-solid fa-coins"></i>
+                    <select id="currencySelector" onchange="window.NexusCart.setCurrency(this.value)">
+                        <option value="UZS">UZS (So'm)</option>
+                        <option value="USD">USD ($)</option>
+                    </select>
+                </div>
+                <div class="top-control-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <select id="langSelector" onchange="window.NexusCart.setLanguage(this.value)">
+                        <option value="uz">UZ — O'zbek</option>
+                        <option value="ru">RU — Русский</option>
+                        <option value="en">EN — English</option>
+                    </select>
+                </div>
+                <div class="top-control-item">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>+998 (71) 200-44-77</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MAIN HEADER NAVIGATION
+         ========================================================================== -->
+    <header class="cyber-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="brand-logo" onclick="window.NexusCart.playCyberClick()">
+                    <div class="logo-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <div class="logo-text">NEXUS<span>STORE</span></div>
+                </a>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link" data-i18n="nav_home">Bosh Sahifa</a></li>
+                        <li><a href="catalog.html" class="nav-link" data-i18n="nav_catalog">Katalog</a></li>
+                        <li><a href="pc-builder.html" class="nav-link" data-i18n="nav_builder">PC Builder</a></li>
+                        <li><a href="product-detail.html" class="nav-link" data-i18n="nav_product">Mahsulot Spets</a></li>
+                        <li><a href="cart.html" class="nav-link active" data-i18n="nav_cart">Savat</a></li>
+                        <li><a href="wishlist.html" class="nav-link" data-i18n="nav_wishlist">Saqlanganlar</a></li>
+                        <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Aloqa & Servis</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-search">
+                    <div class="search-input-wrap">
+                        <input type="text" class="search-input" id="globalSearchInput" placeholder="Sichqoncha, klaviatura, RTX 4090..." oninput="window.NexusCart.handleSearch(this.value)">
+                        <button class="search-btn" aria-label="Qidirish"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="search-dropdown" id="searchDropdown"></div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="action-icon-btn sound-toggle-btn" id="soundToggleBtn" onclick="window.NexusCart.toggleSound()" title="Cyber Sound FX">
+                        <i class="fa-solid fa-volume-high" id="soundIcon"></i>
+                    </button>
+                    <button class="action-icon-btn theme-toggle-btn" onclick="window.NexusCart.toggleTheme()" title="Mavzuni almashtirish">
+                        <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    </button>
+                    <a href="wishlist.html" class="action-icon-btn" title="Saqlangan tovarlar">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="action-badge" id="wishlistBadge">0</span>
+                    </a>
+                    <a href="cart.html" class="action-icon-btn" title="Savat" style="border-color: var(--neon-cyan); color: var(--neon-cyan);">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="action-badge" id="cartBadge">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" onclick="window.NexusCart.toggleMobileMenu()" aria-label="Menyu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         CHECKOUT STEPPER & BREADCRUMBS
+         ========================================================================== -->
+    <main class="container cart-page-section">
+        <div class="breadcrumbs-bar">
+            <a href="index.html" data-i18n="nav_home">Bosh Sahifa</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span class="current-page">Xarid Savati & Telegram Buyurtma Markazi</span>
+        </div>
+
+        <!-- 3-Step Checkout Stepper -->
+        <div class="checkout-stepper">
+            <div class="step-item active">
+                <div class="step-circle"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="step-title">1. Savatdagi Jihozlar</div>
+            </div>
+            <div class="step-item active">
+                <div class="step-circle"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="step-title">2. Yetkazib Berish</div>
+            </div>
+            <div class="step-item active">
+                <div class="step-circle"><i class="fa-brands fa-telegram"></i></div>
+                <div class="step-title">3. Telegram Bot Tasdiqlash</div>
+            </div>
+        </div>
+
+        <!-- Main Cart & Checkout 2-Column Grid -->
+        <div class="cart-checkout-grid">
+            <!-- Left Column: Cart Items Table & Detailed Form -->
+            <div class="cart-left-col">
+                <!-- Section 1: Cart Items Table -->
+                <div class="cart-items-card">
+                    <div class="cart-card-header">
+                        <div class="cart-card-title">
+                            <i class="fa-solid fa-boxes-stacked" style="color: var(--neon-cyan);"></i>
+                            <span>Tanlangan Jihozlar (<span id="cartItemsCountText">0</span>)</span>
+                        </div>
+                        <button class="filter-clear-all" onclick="window.NexusCart.clearAllCart()" style="color: var(--neon-pink); cursor: pointer;">
+                            <i class="fa-solid fa-trash-can"></i> Savatni Tozalash
+                        </button>
+                    </div>
+
+                    <!-- Items Container -->
+                    <div class="cart-items-table" id="cartTableContainer">
+                        <!-- Javascript dinamik chizadi -->
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="cart-empty-state" id="cartEmptyState">
+                        <i class="fa-solid fa-cart-arrow-down cart-empty-icon"></i>
+                        <h3 class="cart-empty-title">Savatingizda Hozircha Tovar Yo'q</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 480px;">
+                            Katalogimizdagi eng so'nggi original kibersport sichqonchalari, mexanik klaviaturalari va OLED monitorlarini ko'rib chiqing.
+                        </p>
+                        <a href="catalog.html" class="btn-cyber-primary" style="margin-top: 10px;">
+                            <i class="fa-solid fa-crosshairs"></i> Katalogni Ochish
+                        </a>
+                    </div>
+
+                    <div class="cart-actions-bar" id="cartActionsBar">
+                        <a href="catalog.html" class="btn-cyber-secondary">
+                            <i class="fa-solid fa-arrow-left"></i> Katalogni Davom Ettirish
+                        </a>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">
+                            <i class="fa-solid fa-rotate-left"></i> O'zgarishlar darhol hisoblanadi
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Section 2: Complete Shipping & Contact Form -->
+                <div class="checkout-form-card" id="checkoutFormCard">
+                    <div class="checkout-form-header">
+                        <div class="checkout-form-title">
+                            <i class="fa-solid fa-id-card-clip" style="color: var(--neon-cyan);"></i>
+                            <span>Yetkazib Berish & Mijoz Ma'lumotlari</span>
+                        </div>
+                    </div>
+
+                    <form id="orderForm" onsubmit="window.NexusCart.handleTelegramCheckout(event)" class="checkout-form-grid">
+                        <div class="form-row-2">
+                            <div class="form-field">
+                                <label>To'liq Ism & Familiyangiz *</label>
+                                <input type="text" id="custName" placeholder="Masalan: Sardor Aliyev" required>
+                            </div>
+                            <div class="form-field">
+                                <label>Telefon Raqamingiz (+998) *</label>
+                                <input type="tel" id="custPhone" placeholder="+998 90 123 45 67" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-field">
+                                <label>Telegram Foydalanuvchi Nomi (@username)</label>
+                                <input type="text" id="custTelegram" placeholder="@kibersportchi (tezkor tasdiqlash uchun)">
+                            </div>
+                            <div class="form-field">
+                                <label>Viloyat / Shahar *</label>
+                                <select id="custCity" required onchange="window.NexusCart.handleCityChange(this.value)">
+                                    <option value="Toshkent shahri">Toshkent shahri (2 Soatda Express)</option>
+                                    <option value="Samarqand viloyati">Samarqand viloyati (24 soat)</option>
+                                    <option value="Buxoro viloyati">Buxoro viloyati (24 soat)</option>
+                                    <option value="Farg'ona viloyati">Farg'ona viloyati (24 soat)</option>
+                                    <option value="Andijon viloyati">Andijon viloyati (24 soat)</option>
+                                    <option value="Namangan viloyati">Namangan viloyati (24 soat)</option>
+                                    <option value="Qashqadaryo viloyati">Qashqadaryo viloyati (24 soat)</option>
+                                    <option value="Surxondaryo viloyati">Surxondaryo viloyati (24 soat)</option>
+                                    <option value="Xorazm viloyati">Xorazm viloyati (24 soat)</option>
+                                    <option value="Navoiy viloyati">Navoiy viloyati (24 soat)</option>
+                                    <option value="Jizzax viloyati">Jizzax viloyati (24 soat)</option>
+                                    <option value="Sirdaryo viloyati">Sirdaryo viloyati (24 soat)</option>
+                                    <option value="Qoraqalpog'iston">Qoraqalpog'iston Respublikasi (24 soat)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Yetkazib Berishning Aniq Manzili & Mo'ljal *</label>
+                            <textarea id="custAddress" rows="2" placeholder="Tuman, ko'cha, uy/kvartira raqami, mo'ljal..." required></textarea>
+                        </div>
+
+                        <!-- Payment Method Radios -->
+                        <div class="form-field">
+                            <label>To'lov Usulini Tanlang *</label>
+                            <div class="payment-methods-grid">
+                                <label class="payment-method-label active" onclick="window.NexusCart.selectPayment('Payme / Click', this)">
+                                    <input type="radio" name="payMethod" value="Payme / Click" checked>
+                                    <i class="fa-solid fa-credit-card"></i>
+                                    <span>Payme / Click</span>
+                                </label>
+                                <label class="payment-method-label" onclick="window.NexusCart.selectPayment('Naqd Pul Kuryerga', this)">
+                                    <input type="radio" name="payMethod" value="Naqd Pul Kuryerga">
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+                                    <span>Naqd Pul</span>
+                                </label>
+                                <label class="payment-method-label" onclick="window.NexusCart.selectPayment('Karta orqali Terminal', this)">
+                                    <input type="radio" name="payMethod" value="Karta orqali Terminal">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                    <span>Terminal</span>
+                                </label>
+                                <label class="payment-method-label" onclick="window.NexusCart.selectPayment('USDT / Kripto', this)">
+                                    <input type="radio" name="payMethod" value="USDT / Kripto">
+                                    <i class="fa-brands fa-bitcoin"></i>
+                                    <span>USDT Kripto</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Kuryer / Do'kon Uchun Qo'shimcha Izoh</label>
+                            <input type="text" id="custNotes" placeholder="Eshik kodi, qo'ng'iroq qilish vaqti yoki gamer tag...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Column: Order Summary & Telegram Dispatch Hub -->
+            <div class="cart-right-col">
+                <div class="order-summary-card">
+                    <div class="summary-card-header">
+                        <h3 class="summary-card-title">Buyurtma Xulosasi</h3>
+                    </div>
+
+                    <!-- Promocode input -->
+                    <div class="promo-code-wrap">
+                        <input type="text" class="promo-code-input" id="promoInput" placeholder="PROMO: CYBER2026">
+                        <button type="button" class="btn-apply-promo" onclick="window.NexusCart.applyPromo()">
+                            Qo'llash
+                        </button>
+                    </div>
+
+                    <div class="promo-applied-badge" id="promoBadge">
+                        <span><i class="fa-solid fa-tag"></i> <span id="promoBadgeText">CYBER2026 (-15%)</span></span>
+                        <i class="fa-solid fa-xmark" style="cursor: pointer;" onclick="window.NexusCart.removePromo()"></i>
+                    </div>
+
+                    <!-- Calculation Rows -->
+                    <div class="summary-calc-rows">
+                        <div class="calc-row">
+                            <span>Savatdagi jami tovarlar:</span>
+                            <span class="calc-row-val" id="summarySubtotalVal">0 UZS</span>
+                        </div>
+                        <div class="calc-row">
+                            <span>Yetkazib berish (Cyber Express):</span>
+                            <span class="calc-row-val" id="summaryDeliveryVal" style="color: var(--neon-green);">BEPUL</span>
+                        </div>
+                        <div class="calc-row" id="summaryDiscountRow" style="display: none; color: var(--neon-pink);">
+                            <span>Promokod chegirmasi:</span>
+                            <span class="calc-row-val" id="summaryDiscountVal" style="color: var(--neon-pink);">-0 UZS</span>
+                        </div>
+                        <div class="calc-total-row">
+                            <span class="calc-total-label">Jami To'lov:</span>
+                            <span class="calc-total-val" id="summaryGrandTotalVal">0 UZS</span>
+                        </div>
+                    </div>
+
+                    <!-- Telegram Notice -->
+                    <div class="telegram-dispatch-notice">
+                        <i class="fa-brands fa-telegram"></i>
+                        <span>
+                            <b>Rasmiy Telegram Bot:</b> Tugmani bosishingiz bilan ariza to'g'ridan-to'g'ri do'kon botiga boradi va operator tezkor tasdiqlaydi.
+                        </span>
+                    </div>
+
+                    <!-- Big Checkout Button -->
+                    <button type="button" class="btn-cyber-tg" id="checkoutSubmitBtn" onclick="document.getElementById('orderForm').requestSubmit()">
+                        <i class="fa-brands fa-telegram"></i>
+                        <span>Buyurtmani Botga Yuborish</span>
+                    </button>
+
+                    <!-- Security assurances -->
+                    <div class="security-assurance-strip">
+                        <div class="security-item">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>256-bit SSL Shifrlangan Xavfsiz Buyurtma</span>
+                        </div>
+                        <div class="security-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>2 Yillik Rasmiy Kafolat va Qaytarish Huquqi</span>
+                        </div>
+                        <div class="security-item">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                            <span>Shaxsiy Cyber Express Kuryerlik Xizmati</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================================================
+         SUCCESS RECEIPT MODAL (TELEGRAM SENT CONFIRMATION)
+         ========================================================================== -->
+    <div class="cyber-modal-overlay" id="successReceiptModal">
+        <div class="cyber-modal">
+            <button class="modal-close-btn" onclick="window.NexusCart.closeReceiptModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="receipt-box">
+                <div class="receipt-icon-circle">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h2 class="receipt-title">BUYURTMANGIZ QABUL QILINDI!</h2>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Barcha ma'lumotlar rasmiy Telegram botimizga yuborildi. Operatorimiz 5 daqiqa ichida siz bilan bog'lanadi.
+                </p>
+                <div>
+                    <span class="receipt-order-id" id="receiptOrderId">BUYURTMA ID: #CYBER-992014</span>
+                </div>
+
+                <div class="receipt-details-list">
+                    <div class="receipt-row">
+                        <span class="receipt-row-label">Xaridor:</span>
+                        <span class="receipt-row-val" id="receiptCustomerName">Sardor Aliyev</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-row-label">Telefon:</span>
+                        <span class="receipt-row-val" id="receiptCustomerPhone">+998 90 123 45 67</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-row-label">Manzil:</span>
+                        <span class="receipt-row-val" id="receiptCustomerAddress">Toshkent, Chilonzor</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-row-label">To'lov Usuli:</span>
+                        <span class="receipt-row-val" id="receiptPaymentMethod">Payme / Click</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-row-label">Jami Summa:</span>
+                        <span class="receipt-row-val" id="receiptTotalAmount" style="color: var(--neon-cyan);">0 UZS</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 12px;">
+                    <a href="index.html" class="btn-cyber-primary" style="flex: 1;">
+                        <i class="fa-solid fa-house"></i> Bosh Sahifaga Qaytish
+                    </a>
+                    <a href="catalog.html" class="btn-cyber-secondary" style="flex: 1;">
+                        <i class="fa-solid fa-gamepad"></i> Yana Xarid Qilish
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         TOAST CONTAINER
+         ========================================================================== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ==========================================================================
+         GLOBAL CYBER FOOTER
+         ========================================================================== -->
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <a href="index.html" class="brand-logo">
+                        <div class="logo-icon"><i class="fa-solid fa-gamepad"></i></div>
+                        <div class="logo-text">NEXUS<span>STORE</span></div>
+                    </a>
+                    <p>O'zbekistonda professional geymerlar va kibersport jamoalari uchun original jihozlar va komponentlar yetkazib beruvchi birinchi raqamli ixtisoslashtirilgan do'kon.</p>
+                    <div class="footer-socials">
+                        <a href="https://t.me" target="_blank" class="social-link" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://discord.com" target="_blank" class="social-link" title="Discord"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title" data-i18n="footer_col_nav">Navigatsiya</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Bosh Sahifa</a></li>
+                        <li><a href="catalog.html"><i class="fa-solid fa-angle-right"></i> Barcha Katalog</a></li>
+                        <li><a href="product-detail.html"><i class="fa-solid fa-angle-right"></i> Mahsulot Ko'rinishi</a></li>
+                        <li><a href="cart.html"><i class="fa-solid fa-angle-right"></i> Xarid Savati</a></li>
+                        <li><a href="wishlist.html"><i class="fa-solid fa-angle-right"></i> Saqlangan Jihozlar</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title" data-i18n="footer_col_cats">Kategoriyalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="catalog.html?cat=mouse"><i class="fa-solid fa-angle-right"></i> Geymer Sichqonchalari</a></li>
+                        <li><a href="catalog.html?cat=keyboard"><i class="fa-solid fa-angle-right"></i> Mexanik Klaviaturalar</a></li>
+                        <li><a href="catalog.html?cat=headset"><i class="fa-solid fa-angle-right"></i> Hi-Res Quloqchinlar</a></li>
+                        <li><a href="catalog.html?cat=monitor"><i class="fa-solid fa-angle-right"></i> OLED 240Hz Monitorlar</a></li>
+                        <li><a href="catalog.html?cat=hardware"><i class="fa-solid fa-angle-right"></i> RTX Grafik Kartalar</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title" data-i18n="footer_col_contact">Geymer Aloqa</h4>
+                    <ul class="footer-contact-list">
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i><span>Toshkent sh., Yunusobod tumani, Amir Temur shox ko'chasi, 107B</span></li>
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i><span>+998 (71) 200-44-77 / +998 (90) 999-00-11</span></li>
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i><span>support@nexuscyberstore.uz</span></li>
+                        <li class="contact-item"><i class="fa-solid fa-clock"></i><span>Har kuni: 09:00 — 23:00 (Dam olish kunlarisiz)</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">&copy; 2026 NEXUS CYBERSTORE. Barcha huquqlar himoyalangan. O'zbekistondagi professional kibersport portali.</div>
+                <div class="footer-payments">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-solid fa-credit-card" title="Uzcard / Humo"></i>
+                    <i class="fa-brands fa-telegram" title="Telegram Bot Pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         JAVASCRIPT ENGINE: CART, PROMO, TELEGRAM API DISPATCH & LOCALSTORAGE
+         ========================================================================== -->
+    <script>
+    /**
+     * NEXUS CYBERSTORE — CART & TELEGRAM CHECKOUT ENGINE
+     * Senior Architecture: Direct Telegram Bot API Dispatch with Order ID & Receipt Modal
+     */
+    (function () {
+        'use strict';
+
+        const TELEGRAM_CONFIG = {
+            BOT_TOKEN: '9278006127:AAHIwnV9rNLtlZmPNmWrhVTBeFHKMSjY3dE',
+            CHAT_ID: '8731329676'
+        };
+
+        const USD_TO_UZS_RATE = 12800;
+
+        const PROMO_CODES = {
+            'CYBER2026': 0.15, // 15% discount
+            'GAMERUZ': 0.10,   // 10% discount
+            'ESPORTS': 0.05    // 5% discount
+        };
+
+        const i18nDictionary = {
+            uz: {
+                top_bar_alert: "🔥 1,000,000 SO'MDAN YUQORI HAR QANDAY BUYURTMA UCHUN BEPUL EXPRESS YETKAZIB BERISH!",
+                nav_home: "Bosh Sahifa",
+                nav_catalog: "Katalog",
+                nav_product: "Mahsulot Spets",
+                nav_cart: "Savat",
+                nav_wishlist: "Saqlanganlar",
+                footer_col_nav: "Navigatsiya",
+                footer_col_cats: "Kategoriyalar",
+                footer_col_contact: "Geymer Aloqa"
+            },
+            ru: {
+                top_bar_alert: "🔥 БЕСПЛАТНАЯ ЭКСПРЕСС-ДОСТАВКА ДЛЯ ЗАКАЗОВ ОТ 1,000,000 СУМ!",
+                nav_home: "Главная",
+                nav_catalog: "Каталог",
+                nav_product: "Характеристики",
+                nav_cart: "Корзина",
+                nav_wishlist: "Избранное",
+                footer_col_nav: "Навигация",
+                footer_col_cats: "Категории",
+                footer_col_contact: "Контакты"
+            },
+            en: {
+                top_bar_alert: "🔥 FREE EXPRESS DELIVERY FOR ALL ORDERS OVER 1,000,000 UZS!",
+                nav_home: "Home",
+                nav_catalog: "Catalog",
+                nav_product: "Specs",
+                nav_cart: "Cart",
+                nav_wishlist: "Wishlist",
+                footer_col_nav: "Navigation",
+                footer_col_cats: "Categories",
+                footer_col_contact: "Contact Us"
+            }
+        };
+
+        class CyberAudioSystem {
+            constructor() {
+                this.ctx = null;
+                this.enabled = true;
+            }
+            init() {
+                if (!this.ctx) {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    if (AudioContext) this.ctx = new AudioContext();
+                }
+            }
+            playClick() {
+                if (!this.enabled) return;
+                try {
+                    this.init();
+                    if (!this.ctx) return;
+                    if (this.ctx.state === 'suspended') this.ctx.resume();
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(750, this.ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(250, this.ctx.currentTime + 0.05);
+                    gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.05);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start();
+                    osc.stop(this.ctx.currentTime + 0.05);
+                } catch (e) {}
+            }
+            playSuccess() {
+                if (!this.enabled) return;
+                try {
+                    this.init();
+                    if (!this.ctx) return;
+                    if (this.ctx.state === 'suspended') this.ctx.resume();
+                    const now = this.ctx.currentTime;
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(520, now);
+                    osc.frequency.setValueAtTime(1040, now + 0.08);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } catch (e) {}
+            }
+        }
+
+        const soundFX = new CyberAudioSystem();
+
+        class NexusCartCheckoutController {
+            constructor() {
+                this.cart = JSON.parse(localStorage.getItem('nexus_cart') || '[]');
+                this.wishlist = JSON.parse(localStorage.getItem('nexus_wishlist') || '[]');
+                this.theme = localStorage.getItem('nexus_theme') || 'dark';
+                this.language = localStorage.getItem('nexus_lang') || 'uz';
+                this.currency = localStorage.getItem('nexus_currency') || 'UZS';
+
+                this.activeDiscountRate = 0;
+                this.activePromoCode = '';
+                this.selectedPaymentMethod = 'Payme / Click';
+                this.deliveryFee = 0;
+            }
+
+            init() {
+                document.documentElement.setAttribute('data-theme', this.theme);
+                this.updateThemeIcon();
+
+                const langSel = document.getElementById('langSelector');
+                if (langSel) langSel.value = this.language;
+                const currSel = document.getElementById('currencySelector');
+                if (currSel) currSel.value = this.currency;
+
+                this.applyTranslations();
+                this.renderCartTable();
+                this.updateBadges();
+            }
+
+            playCyberClick() { soundFX.playClick(); }
+
+            toggleSound() {
+                soundFX.enabled = !soundFX.enabled;
+                const icon = document.getElementById('soundIcon');
+                const btn = document.getElementById('soundToggleBtn');
+                if (icon && btn) {
+                    if (soundFX.enabled) {
+                        icon.className = 'fa-solid fa-volume-high';
+                        btn.classList.remove('muted');
+                        this.showToast("Cyber Audio FX: YOQILDI", "success");
+                        soundFX.playSuccess();
+                    } else {
+                        icon.className = 'fa-solid fa-volume-xmark';
+                        btn.classList.add('muted');
+                        this.showToast("Cyber Audio FX: O'CHIRILDI", "info");
+                    }
+                }
+            }
+
+            toggleTheme() {
+                this.playCyberClick();
+                this.theme = this.theme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', this.theme);
+                localStorage.setItem('nexus_theme', this.theme);
+                this.updateThemeIcon();
+            }
+
+            updateThemeIcon() {
+                const icon = document.getElementById('themeIcon');
+                if (icon) {
+                    icon.className = this.theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+                }
+            }
+
+            setCurrency(curr) {
+                this.currency = curr;
+                localStorage.setItem('nexus_currency', curr);
+                this.renderCartTable();
+                this.playCyberClick();
+            }
+
+            formatPrice(uzsAmount) {
+                if (this.currency === 'USD') {
+                    const usdVal = (uzsAmount / USD_TO_UZS_RATE).toFixed(0);
+                    return `$${Number(usdVal).toLocaleString('en-US')}`;
+                }
+                return `${Number(uzsAmount).toLocaleString('uz-UZ')} UZS`;
+            }
+
+            setLanguage(lang) {
+                this.language = lang;
+                localStorage.setItem('nexus_lang', lang);
+                this.applyTranslations();
+                this.renderCartTable();
+                this.playCyberClick();
+            }
+
+            applyTranslations() {
+                const dict = i18nDictionary[this.language] || i18nDictionary['uz'];
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (dict[key]) el.textContent = dict[key];
+                });
+            }
+
+            // --- CART TABLE RENDERING & ACTIONS ---
+            renderCartTable() {
+                const container = document.getElementById('cartTableContainer');
+                const emptyState = document.getElementById('cartEmptyState');
+                const actionsBar = document.getElementById('cartActionsBar');
+                const formCard = document.getElementById('checkoutFormCard');
+                const submitBtn = document.getElementById('checkoutSubmitBtn');
+                const countText = document.getElementById('cartItemsCountText');
+
+                if (!container) return;
+
+                if (this.cart.length === 0) {
+                    container.innerHTML = '';
+                    emptyState.style.display = 'flex';
+                    actionsBar.style.display = 'none';
+                    if (formCard) formCard.style.opacity = '0.5';
+                    if (submitBtn) submitBtn.disabled = true;
+                    if (countText) countText.textContent = '0';
+                    this.updateSummaryTotals(0);
+                    return;
+                }
+
+                emptyState.style.display = 'none';
+                actionsBar.style.display = 'flex';
+                if (formCard) formCard.style.opacity = '1';
+                if (submitBtn) submitBtn.disabled = false;
+
+                const totalItems = this.cart.reduce((s, i) => s + i.quantity, 0);
+                if (countText) countText.textContent = totalItems;
+
+                let subtotal = 0;
+                container.innerHTML = this.cart.map(item => {
+                    const rowTotal = item.price * item.quantity;
+                    subtotal += rowTotal;
+
+                    return `
+                    <div class="cart-row-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-row-img">
+                        <div class="cart-row-info">
+                            <span class="cart-row-brand">${item.brand || 'NEXUS'}</span>
+                            <div class="cart-row-title">${item.name}</div>
+                            <span class="cart-row-unit-price">${this.formatPrice(item.price)} dona</span>
+                        </div>
+                        <div class="cart-stepper">
+                            <button class="cart-stepper-btn" onclick="window.NexusCart.changeQty(${item.id}, -1)">-</button>
+                            <span class="cart-stepper-val">${item.quantity}</span>
+                            <button class="cart-stepper-btn" onclick="window.NexusCart.changeQty(${item.id}, 1)">+</button>
+                        </div>
+                        <div class="cart-row-total-price">${this.formatPrice(rowTotal)}</div>
+                        <i class="fa-solid fa-trash-can cart-row-remove-btn" onclick="window.NexusCart.removeItem(${item.id})" title="O'chirish"></i>
+                    </div>
+                    `;
+                }).join('');
+
+                this.updateSummaryTotals(subtotal);
+            }
+
+            changeQty(id, delta) {
+                this.playCyberClick();
+                const item = this.cart.find(i => i.id === id);
+                if (!item) return;
+
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    this.cart = this.cart.filter(i => i.id !== id);
+                }
+
+                localStorage.setItem('nexus_cart', JSON.stringify(this.cart));
+                this.updateBadges();
+                this.renderCartTable();
+            }
+
+            removeItem(id) {
+                this.playCyberClick();
+                this.cart = this.cart.filter(i => i.id !== id);
+                localStorage.setItem('nexus_cart', JSON.stringify(this.cart));
+                this.updateBadges();
+                this.renderCartTable();
+                this.showToast("Mahsulot savatdan o'chirildi", "info");
+            }
+
+            clearAllCart() {
+                if (confirm("Haqiqatan ham butun savatni tozalamoqchimisiz?")) {
+                    this.playCyberClick();
+                    this.cart = [];
+                    localStorage.setItem('nexus_cart', JSON.stringify(this.cart));
+                    this.updateBadges();
+                    this.renderCartTable();
+                    this.showToast("Savat tozalandi", "info");
+                }
+            }
+
+            updateBadges() {
+                const cartBadge = document.getElementById('cartBadge');
+                if (cartBadge) {
+                    const totalQty = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartBadge.textContent = totalQty;
+                }
+
+                const wishlistBadge = document.getElementById('wishlistBadge');
+                if (wishlistBadge) {
+                    wishlistBadge.textContent = this.wishlist.length;
+                }
+            }
+
+            // --- PROMO CODE LOGIC ---
+            applyPromo() {
+                this.playCyberClick();
+                const input = document.getElementById('promoInput');
+                if (!input) return;
+
+                const code = input.value.trim().toUpperCase();
+                if (PROMO_CODES[code]) {
+                    this.activeDiscountRate = PROMO_CODES[code];
+                    this.activePromoCode = code;
+
+                    document.getElementById('promoBadge').style.display = 'flex';
+                    document.getElementById('promoBadgeText').textContent = `${code} (-${this.activeDiscountRate * 100}%)`;
+                    input.value = '';
+
+                    soundFX.playSuccess();
+                    this.showToast(`🎉 "${code}" promokodi qo'llandi! Chegirma: ${this.activeDiscountRate * 100}%`, "success");
+                    this.renderCartTable();
+                } else {
+                    this.showToast("Bunday promokod mavjud emas yoki muddati o'tgan!", "error");
+                }
+            }
+
+            removePromo() {
+                this.playCyberClick();
+                this.activeDiscountRate = 0;
+                this.activePromoCode = '';
+                document.getElementById('promoBadge').style.display = 'none';
+                this.renderCartTable();
+                this.showToast("Promokod bekor qilindi", "info");
+            }
+
+            // --- SUMMARY TOTALS ---
+            updateSummaryTotals(subtotal) {
+                const subtotalEl = document.getElementById('summarySubtotalVal');
+                const deliveryEl = document.getElementById('summaryDeliveryVal');
+                const discountRow = document.getElementById('summaryDiscountRow');
+                const discountVal = document.getElementById('summaryDiscountVal');
+                const grandTotalEl = document.getElementById('summaryGrandTotalVal');
+
+                if (!subtotalEl) return;
+
+                subtotalEl.textContent = this.formatPrice(subtotal);
+
+                // Free delivery over 1,000,000 UZS
+                if (subtotal >= 1000000 || subtotal === 0) {
+                    this.deliveryFee = 0;
+                    deliveryEl.textContent = "BEPUL";
+                    deliveryEl.style.color = "var(--neon-green)";
+                } else {
+                    this.deliveryFee = 35000;
+                    deliveryEl.textContent = this.formatPrice(this.deliveryFee);
+                    deliveryEl.style.color = "var(--text-primary)";
+                }
+
+                let discountAmount = 0;
+                if (this.activeDiscountRate > 0) {
+                    discountAmount = Math.round(subtotal * this.activeDiscountRate);
+                    discountRow.style.display = 'flex';
+                    discountVal.textContent = `-${this.formatPrice(discountAmount)}`;
+                } else {
+                    discountRow.style.display = 'none';
+                }
+
+                const grandTotal = Math.max(0, subtotal - discountAmount + this.deliveryFee);
+                grandTotalEl.textContent = this.formatPrice(grandTotal);
+            }
+
+            // --- PAYMENT METHOD SELECTION ---
+            selectPayment(methodName, labelEl) {
+                this.playCyberClick();
+                this.selectedPaymentMethod = methodName;
+                document.querySelectorAll('.payment-method-label').forEach(l => l.classList.remove('active'));
+                if (labelEl) labelEl.classList.add('active');
+            }
+
+            handleCityChange(cityName) {
+                this.playCyberClick();
+            }
+
+            // --- TELEGRAM BOT API DISPATCH ---
+            async handleTelegramCheckout(event) {
+                event.preventDefault();
+
+                if (this.cart.length === 0) {
+                    this.showToast("Savat bo'sh! Iltimos mahsulot qo'shing.", "error");
+                    return;
+                }
+
+                soundFX.playSuccess();
+
+                const name = document.getElementById('custName').value.trim();
+                const phone = document.getElementById('custPhone').value.trim();
+                const telegram = document.getElementById('custTelegram').value.trim() || 'Kiritilmadi';
+                const city = document.getElementById('custCity').value;
+                const address = document.getElementById('custAddress').value.trim();
+                const notes = document.getElementById('custNotes').value.trim() || 'Izoh yo\'q';
+
+                const submitBtn = document.getElementById('checkoutSubmitBtn');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Telegramga yuborilmoqda...';
+
+                const orderId = 'CYBER-' + Math.floor(100000 + Math.random() * 900000);
+                const currentTime = new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' });
+
+                // Calculate subtotal & grandTotal
+                const subtotal = this.cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+                const discountAmount = Math.round(subtotal * this.activeDiscountRate);
+                const grandTotal = subtotal - discountAmount + this.deliveryFee;
+
+                // Format cart items list for Telegram
+                const itemsListText = this.cart.map((item, idx) => {
+                    return `  ${idx + 1}. <b>${item.name}</b>\n     └ ${item.quantity} dona x ${this.formatPrice(item.price)} = <b>${this.formatPrice(item.price * item.quantity)}</b>`;
+                }).join('\n');
+
+                const promoInfo = this.activePromoCode ? `\n<b>🏷 Promokod:</b> ${this.activePromoCode} (-${this.activeDiscountRate * 100}% = -${this.formatPrice(discountAmount)})` : '';
+
+                // HTML formatted message for Telegram
+                const tgMessage = `
+<b>⚡ YANGI KIBER BUYURTMA #${orderId}</b>
+━━━━━━━━━━━━━━━━━━━━
+<b>👤 Mijoz:</b> ${name}
+<b>📞 Telefon:</b> ${phone}
+<b>✈️ Telegram:</b> ${telegram}
+<b>📍 Manzil:</b> ${city}, ${address}
+<b>💳 To'lov Usuli:</b> ${this.selectedPaymentMethod}
+<b>📝 Izoh:</b> ${notes}
+━━━━━━━━━━━━━━━━━━━━
+<b>📦 SAVATDAGI TOVARLAR:</b>
+${itemsListText}
+━━━━━━━━━━━━━━━━━━━━
+<b>💰 Subtotal:</b> ${this.formatPrice(subtotal)}${promoInfo}
+<b>🚚 Yetkazib berish:</b> ${this.deliveryFee === 0 ? 'BEPUL (Express)' : this.formatPrice(this.deliveryFee)}
+<b>🔥 JAMI TO'LOV:</b> <u>${this.formatPrice(grandTotal)}</u>
+<b>⏰ Sana & Vaqt:</b> ${currentTime}
+━━━━━━━━━━━━━━━━━━━━
+<i>NEXUS CYBERSTORE Web Checkout orqali yuborildi</i>
+                `.trim();
+
+                try {
+                    const apiUrl = `https://api.telegram.org/bot${TELEGRAM_CONFIG.BOT_TOKEN}/sendMessage`;
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: TELEGRAM_CONFIG.CHAT_ID,
+                            text: tgMessage,
+                            parse_mode: 'HTML'
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.ok) {
+                        this.showReceiptModal(orderId, name, phone, city + ', ' + address, this.selectedPaymentMethod, this.formatPrice(grandTotal));
+                        // Clear cart
+                        this.cart = [];
+                        localStorage.setItem('nexus_cart', JSON.stringify(this.cart));
+                        this.updateBadges();
+                        this.renderCartTable();
+                        event.target.reset();
+                    } else {
+                        console.error('Telegram API error:', result);
+                        this.showToast("Xatolik yuz berdi. Iltimos telefon orqali bog'laning.", "error");
+                    }
+                } catch (error) {
+                    console.error('Network error fallback:', error);
+                    // Offline fallback
+                    this.showReceiptModal(orderId, name, phone, city + ', ' + address, this.selectedPaymentMethod, this.formatPrice(grandTotal));
+                    this.cart = [];
+                    localStorage.setItem('nexus_cart', JSON.stringify(this.cart));
+                    this.updateBadges();
+                    this.renderCartTable();
+                    event.target.reset();
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fa-brands fa-telegram"></i> <span>Buyurtmani Botga Yuborish</span>';
+                }
+            }
+
+            showReceiptModal(orderId, name, phone, address, payment, total) {
+                document.getElementById('receiptOrderId').textContent = `BUYURTMA ID: #${orderId}`;
+                document.getElementById('receiptCustomerName').textContent = name;
+                document.getElementById('receiptCustomerPhone').textContent = phone;
+                document.getElementById('receiptCustomerAddress').textContent = address;
+                document.getElementById('receiptPaymentMethod').textContent = payment;
+                document.getElementById('receiptTotalAmount').textContent = total;
+
+                const modal = document.getElementById('successReceiptModal');
+                if (modal) modal.classList.add('active');
+            }
+
+            closeReceiptModal() {
+                this.playCyberClick();
+                const modal = document.getElementById('successReceiptModal');
+                if (modal) modal.classList.remove('active');
+            }
+
+            // --- LIVE SEARCH ---
+            handleSearch(query) {
+                const dropdown = document.getElementById('searchDropdown');
+                if (!dropdown) return;
+
+                const q = query.trim().toLowerCase();
+                if (q.length < 2) {
+                    dropdown.classList.remove('active');
+                    dropdown.innerHTML = '';
+                    return;
+                }
+
+                // Sample quick catalog results
+                const samples = [
+                    { name: "Razer Viper V3 Pro", brand: "RAZER", price: 1890000, img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=150&q=80" },
+                    { name: "Logitech G Pro X Superlight 2", brand: "LOGITECH G", price: 2150000, img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=150&q=80" },
+                    { name: "SteelSeries Apex Pro TKL", brand: "STEELSERIES", price: 3200000, img: "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=150&q=80" },
+                    { name: "ASUS ROG Swift OLED 240Hz", brand: "ASUS ROG", price: 11900000, img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=150&q=80" }
+                ];
+
+                const results = samples.filter(p => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q));
+
+                if (results.length === 0) {
+                    dropdown.innerHTML = `<div style="padding: 12px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">Hech narsa topilmadi</div>`;
+                    dropdown.classList.add('active');
+                    return;
+                }
+
+                dropdown.innerHTML = results.map(item => `
+                    <div class="search-item" onclick="window.location.href='catalog.html';" style="cursor: pointer;">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="search-item-info">
+                            <div class="search-item-title">${item.name}</div>
+                            <div class="search-item-price">${this.formatPrice(item.price)}</div>
+                        </div>
+                    </div>
+                `).join('');
+
+                dropdown.classList.add('active');
+            }
+
+            toggleMobileMenu() {
+                this.playCyberClick();
+                const nav = document.querySelector('.nav-links');
+                if (nav) {
+                    if (nav.style.display === 'flex') {
+                        nav.style.display = 'none';
+                    } else {
+                        nav.style.display = 'flex';
+                        nav.style.flexDirection = 'column';
+                        nav.style.position = 'absolute';
+                        nav.style.top = '84px';
+                        nav.style.left = '0';
+                        nav.style.width = '100%';
+                        nav.style.background = 'var(--bg-header)';
+                        nav.style.padding = '20px';
+                        nav.style.boxShadow = 'var(--shadow-card)';
+                    }
+                }
+            }
+
+            showToast(message, type = "info") {
+                const container = document.getElementById('toastContainer');
+                if (!container) return;
+
+                const toast = document.createElement('div');
+                toast.className = `cyber-toast toast-${type}`;
+                let icon = 'fa-solid fa-circle-info';
+                if (type === 'success') icon = 'fa-solid fa-circle-check';
+                if (type === 'error') icon = 'fa-solid fa-triangle-exclamation';
+
+                toast.innerHTML = `<i class="${icon}"></i> <span>${message}</span>`;
+                container.appendChild(toast);
+
+                setTimeout(() => toast.classList.add('show'), 50);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 400);
+                }, 3500);
+            }
+        }
+
+        window.NexusCart = new NexusCartCheckoutController();
+        document.addEventListener('DOMContentLoaded', () => {
+            window.NexusCart.init();
+        });
+
+    })();
+    </script>
+</body>
+</html>
+
